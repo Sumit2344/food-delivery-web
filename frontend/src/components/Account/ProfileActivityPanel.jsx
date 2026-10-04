@@ -5,7 +5,7 @@ import { addProfileBookmark, getProfileData, getRestaurants, removeProfileBookma
 import css from './AccountFeaturePage.module.css'
 
 export default function ProfileActivityPanel({ kind }) {
-  const { user, loggedIn } = useAuthSession()
+  const { loggedIn } = useAuthSession()
   const [profile, setProfile] = useState(null)
   const [restaurants, setRestaurants] = useState([])
   const [restaurantId, setRestaurantId] = useState('')
