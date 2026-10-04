@@ -1,0 +1,321 @@
+.bodySize {
+    width: 70%;
+    margin: auto;
+}
+
+.chooseTypeCards {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nearbySection {
+    margin: 30px 0 40px;
+    padding: 22px 18px;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.nearbyHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    flex-wrap: wrap;
+}
+
+.nearbyHeader h3 {
+    margin: 0;
+    color: #1c1c1c;
+    font-size: 1.8rem;
+}
+
+.nearbyHeader span {
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.nearbyGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.nearbyCard {
+    display: block;
+    border: 1px solid #f0f0f0;
+    border-radius: 14px;
+    overflow: hidden;
+    text-decoration: none;
+    color: inherit;
+    background: #fff;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.nearbyCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 22px rgba(0,0,0,0.08);
+}
+
+.nearbyCard img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.nearbyCard > div {
+    padding: 14px 12px 16px;
+}
+
+.nearbyName {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1f1f1f;
+    margin-bottom: 4px;
+}
+
+.nearbyMeta {
+    font-size: 0.82rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.nearbyFallback {
+    padding: 18px 10px;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.directorySection {
+    margin: 32px 0 48px;
+    padding: 28px;
+    border: 1px solid #f0eeee;
+    border-radius: 22px;
+    background: linear-gradient(145deg, #fff 60%, #fff8f5);
+    box-shadow: 0 12px 36px rgba(44, 27, 20, 0.06);
+}
+
+.directoryHeading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+
+.directoryEyebrow {
+    color: #e34d3c;
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+}
+
+.directoryHeading h2 {
+    margin: 7px 0 5px;
+    color: #1c1c1c;
+    font-size: 1.8rem;
+}
+
+.directoryHeading p {
+    margin: 0;
+    color: #777;
+}
+
+.directoryCount {
+    flex-shrink: 0;
+    padding: 8px 12px;
+    border-radius: 999px;
+    background: #fff0ec;
+    color: #ba4334;
+    font-size: 0.82rem;
+    font-weight: 700;
+}
+
+.directorySearch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 620px;
+    padding: 0 14px;
+    border: 1px solid #e8e4e2;
+    border-radius: 12px;
+    background: #fff;
+    color: #e34d3c;
+}
+
+.directorySearch > span {
+    font-size: 1.5rem;
+}
+
+.directorySearch input {
+    width: 100%;
+    min-width: 0;
+    padding: 14px 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #262626;
+    font: inherit;
+}
+
+.cityFilters {
+    display: flex;
+    gap: 9px;
+    margin: 18px 0;
+    overflow-x: auto;
+    padding-bottom: 5px;
+}
+
+.cityFilter,
+.activeCityFilter {
+    flex: 0 0 auto;
+    padding: 9px 15px;
+    border: 1px solid #e9e5e3;
+    border-radius: 999px;
+    background: #fff;
+    color: #555;
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.88rem;
+    transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+
+.cityFilter:hover {
+    border-color: #ee8b7f;
+}
+
+.activeCityFilter {
+    border-color: #e34d3c;
+    background: #e34d3c;
+    color: #fff;
+}
+
+.directoryResultCount {
+    margin: 16px 0 12px;
+    color: #777;
+    font-size: 0.86rem;
+}
+
+.restaurantGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    gap: 18px;
+}
+
+.restaurantCard {
+    overflow: hidden;
+    border: 1px solid #efedeb;
+    border-radius: 15px;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.restaurantCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+.restaurantCard > img {
+    display: block;
+    width: 100%;
+    height: 145px;
+    object-fit: cover;
+}
+
+.restaurantCardBody {
+    padding: 14px;
+}
+
+.restaurantCardTopline,
+.restaurantCardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.restaurantCity {
+    color: #e34d3c;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.restaurantRating {
+    padding: 4px 7px;
+    border-radius: 6px;
+    background: #267a43;
+    color: #fff;
+    font-size: 0.76rem;
+    font-weight: 700;
+}
+
+.restaurantCard h3 {
+    margin: 9px 0 4px;
+    color: #222;
+    font-size: 1.05rem;
+}
+
+.restaurantCuisine {
+    min-height: 1.4em;
+    margin: 0 0 12px;
+    color: #777;
+    font-size: 0.86rem;
+}
+
+.restaurantCardFooter {
+    padding-top: 10px;
+    border-top: 1px solid #f1efed;
+    color: #666;
+    font-size: 0.78rem;
+}
+
+.directoryMessage {
+    padding: 22px 8px;
+    color: #666;
+}
+
+@media all and (max-width: 768px) {
+    .chooseTypeCards {
+        width: 90%;
+    }
+
+    .bodySize {
+        width: 92%;
+    }
+
+    .nearbyHeader h3 {
+        font-size: 1.4rem;
+    }
+
+    .directorySection {
+        padding: 20px 15px;
+    }
+
+    .directoryHeading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .directoryHeading h2 {
+        font-size: 1.45rem;
+    }
+
+    .restaurantGrid {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+        gap: 12px;
+    }
+
+    .restaurantCard > img {
+        height: 120px;
+    }
+
+    .restaurantCardBody {
+        padding: 11px;
+    }
+}

@@ -1,78 +1,52 @@
-# Tomato (zomato clone)
+# Tomato food delivery app
 
-**Live App Demo Link:** [Zomato Clone Live App Demo](https://zomatoclone.koushilmankali.in/)
+JavaScript food delivery app organized as a Next.js/React frontend and a Node.js/Express backend. MongoDB is supported; when `MONGO_URI` is not configured, the API uses `backend/data/db.json` for local development.
 
-Zomato is a online food ordering application, we made a clone (Tomato) of it using React Js, Zomato Frontend clone using React Js.
+The local demo catalog includes 20 restaurants across Hyderabad, Mumbai, Delhi, Bengaluru, Chennai, Pune, Jaipur, and Kolkata. Paraside has 100 dishes; every restaurant has its own menu with descriptions and clearly labeled sample reviews. These restaurant listings and reviews are demo records, not verified businesses or customer reviews.
 
-### Project Demonistration Video: 
+## Project layout
 
-[![Zomato clone demonistration video](https://img.youtube.com/vi/lNfS_8bJA5c/0.jpg)](https://www.youtube.com/watch?v=lNfS_8bJA5c)
+```text
+frontend/
+  app/                 Next.js app entry and route shell
+  public/              Static images and assets
+  src/                 React pages, components, styles, and API client
+backend/
+  server.js            Express API and MongoDB integration
+  data/db.json         Local JSON database fallback
+  .env.example         Backend environment variable template
+package.json           Workspace scripts for running both apps
+```
 
-## Pages Developed:
+## Run locally
 
-1. [Home Page](#home-page)    
-2. [Add a Restaurant Page](#add-restaurant-page)    
-3. [User Profile Page](#user-profile-page)   
-4. Restaurant Home Page 
-5. [Restaurant Order Page](#hotel-order-page)   
-6. Restaurant Review Page
-7. Restaurant Photos Page
-8. Restaurant Menu Page   
-9. Get The App Page
-10. [Order Page](#order-online-page)  
-11. Dinning Page
-12. Nightlife Page
+Install dependencies from the repository root, then start both apps:
 
-## Libraries Used:
+```sh
+npm install
+npm run dev
+```
 
-| Library Name | Description |
-| ------------ | ----------- |
-| React Js     | Frontend Framework |
-| React Slick  | For carousel's in the project |
-| slick-carousel  | For carousel's in the project (used with React Slick) |
-| React Router v6  | Routing library  |
-| Formik  | Library for Forms |
+The frontend runs at `http://localhost:4173` and the API at `http://localhost:4000`. The frontend proxies `/api` requests to the backend.
 
-## Tools Used:
+The home page includes nearby discovery when location permission is available, plus a city directory that can filter by city and search restaurant names, cuisines, and dishes. Seeded restaurant data is merged into the JSON fallback on API reads and into MongoDB when the database is initialized.
 
-| Tool Name | Description |
-| ----------- | ----------- |
-| Vitejs    | Vitejs is a development environment tool |
-| Yup   | Validation tool |
-| Yarn   | Package Manager tool |
+## Account features
 
-### To start the project use commands: (After cloning the project)
+Signed-in users can save restaurants, submit restaurant reviews, follow other registered users, view order notifications, and persist notification preferences. Profile data is private to the authenticated account and is stored in MongoDB when configured or in the local JSON database otherwise. Notification preferences are stored, but external push, email, and WhatsApp delivery providers are not configured.
 
-1. yarn
-2. yarn run dev
+## MongoDB
 
-## ScreenShots
+Copy `backend/.env.example` to `backend/.env`. Set `MONGO_URI` to a MongoDB connection string and optionally set `MONGO_DB_NAME`. Keep `MONGO_URI` empty to use the JSON file fallback. Never commit `backend/.env`.
 
-# Home Page:
+To enable direct UPI intents, set `UPI_VPA` to your real merchant UPI ID and `UPI_PAYEE_NAME` in `backend/.env`. UPI orders remain pending until a transaction reference is submitted; this demo does not verify bank payments automatically, so a merchant must confirm them manually. For automatic payment confirmation, integrate a payment gateway with server-side verification and webhooks.
 
-<img src="Project Images/Home.png" />
+## Accounts and sign-in
 
+Accounts use email and password. Passwords are hashed before storage, sign-in returns a signed seven-day session token, and order placement requires a valid token for the signed-in account. Set a long, private `AUTH_SECRET` in `backend/.env` before deployment; production startup fails if it is missing. Phone OTP and Google sign-in are not configured, so the app does not claim to send or verify SMS codes.
 
-# Add Restaurant Page:
+## Build
 
-<img src="Project Images/AddRestaurant.png" />
-
-
-# Order Online Page:
-
-<img src="Project Images/OrderOnlinePage.png" />
-
-
-# User Profile Page:
-
-<img src="Project Images/UserProfilePage.png" />
-
-
-# Hotel Order Page:
-
-<img src="Project Images/HotelOrderPage.png" />
-
-
-### Project Started Date: june, 11, 2025
-
-### Project Completed Date: july 20, 2025
+```sh
+npm run build
+```

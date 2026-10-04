@@ -1,25 +1,17 @@
 {
-  "name": "zomato_clone",
+  "name": "tomato-food-delivery",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "formik": "^2.2.9",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-router-dom": "6",
-    "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1",
-    "yup": "^0.32.11"
+    "dev": "concurrently -k \"npm run dev --workspace frontend\" \"npm run dev --workspace backend\"",
+    "build": "npm run build --workspace frontend",
+    "start": "concurrently -k \"npm run start --workspace frontend\" \"npm run start --workspace backend\""
   },
   "devDependencies": {
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@vitejs/plugin-react": "^1.3.0",
-    "vite": "^2.9.9"
+    "concurrently": "^9.1.2"
   }
 }
