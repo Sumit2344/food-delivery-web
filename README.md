@@ -45,9 +45,9 @@ To enable direct UPI intents, set `UPI_VPA` to your real merchant UPI ID and `UP
 
 Accounts use email and password. Passwords are hashed before storage, sign-in returns a signed seven-day session token, and order placement requires a valid token for the signed-in account. Set a long, private `AUTH_SECRET` and a persistent `MONGO_URI` in `backend/.env` before production; backend startup fails if either is missing. Phone OTP and Google sign-in are not configured, so the app does not claim to send or verify SMS codes.
 
-## Deployment (Vercel + Render)
+## Deployment (Render)
 
-The backend Blueprint is in `render.yaml`. Connect the GitHub repository to Render and create a Blueprint deployment; provide a MongoDB connection string when prompted. Render generates `AUTH_SECRET`. After the API is live, import the repository into Vercel with the frontend root directory set to `frontend`, and set `API_SERVER_URL` to the Render API's HTTPS URL before deploying. Production builds intentionally fail if the API URL is missing. Optional UPI credentials can be set in the Render service environment.
+The complete frontend and API Blueprint is in `render.yaml`. Connect the GitHub repository to Render and create a Blueprint deployment; provide a MongoDB connection string when prompted. Render generates `AUTH_SECRET`; the frontend calls the API over Render's private network. Production builds on Vercel also require `API_SERVER_URL` to point to the deployed API. Optional UPI credentials can be set in the API service environment.
 
 ## Build
 

@@ -20,3 +20,16 @@ services:
         value: ""
       - key: UPI_PAYEE_NAME
         value: Tomato Food Delivery
+  - type: web
+    name: tomato-web
+    runtime: node
+    rootDir: .
+    plan: free
+    buildCommand: npm install --omit=dev && npm run build --workspace frontend
+    startCommand: npm run start --workspace frontend
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: API_SERVER_URL
+        value: http://tomato-api:4000
