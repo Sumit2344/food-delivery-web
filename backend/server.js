@@ -20,6 +20,9 @@ const DATA_FILE = path.join(__dirname, 'data', 'db.json');
 if (process.env.NODE_ENV === 'production' && !process.env.AUTH_SECRET) {
   throw new Error('AUTH_SECRET must be configured in production.');
 }
+if (process.env.NODE_ENV === 'production' && !MONGO_URI) {
+  throw new Error('MONGO_URI must be configured in production to persist account and order data.');
+}
 
 app.use(cors());
 app.use(express.json());

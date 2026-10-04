@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: tomato-api
+    runtime: node
+    rootDir: backend
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AUTH_SECRET
+        generateValue: true
+      - key: MONGO_URI
+        sync: false
+      - key: MONGO_DB_NAME
+        value: tomato
+      - key: UPI_VPA
+        value: ""
+      - key: UPI_PAYEE_NAME
+        value: Tomato Food Delivery
