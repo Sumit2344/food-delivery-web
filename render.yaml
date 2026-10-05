@@ -3,6 +3,7 @@ services:
     name: tomato-api
     runtime: node
     rootDir: backend
+    region: oregon
     plan: free
     buildCommand: npm install --omit=dev
     startCommand: npm start
@@ -24,6 +25,7 @@ services:
     name: tomato-web
     runtime: node
     rootDir: .
+    region: oregon
     plan: free
     buildCommand: npm install --omit=dev && npm run build --workspace frontend
     startCommand: npm run start --workspace frontend
@@ -32,4 +34,4 @@ services:
       - key: NODE_ENV
         value: production
       - key: API_SERVER_URL
-        value: http://tomato-api:4000
+        value: http://tomato-api:10000
