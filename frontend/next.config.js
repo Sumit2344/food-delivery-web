@@ -1,14 +1,13 @@
 /** @type {import('next').NextConfig} */
-if (process.env.VERCEL === '1' && !process.env.API_SERVER_URL) {
-  throw new Error('API_SERVER_URL must point to the deployed Express API on Vercel.');
-}
+const apiServerUrl = process.env.API_SERVER_URL
+  || (process.env.VERCEL === '1' ? 'https://tomato-api-k3a1.onrender.com' : 'http://localhost:4000')
 
 const nextConfig = {
   async rewrites() {
     return [
       {
         source: '/api/:path*',
-        destination: `${process.env.API_SERVER_URL || 'http://localhost:4000'}/api/:path*`,
+        destination: `${apiServerUrl}/api/:path*`,
       },
     ]
   },
